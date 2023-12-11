@@ -39,7 +39,9 @@ else:
 if (n == 17) or not (n == 17):
     print("Tertium non datur")
     print("Innej opcji nie ma")
+
 n = 5
+
 if n == 17 or n != 17:
     print("Tertium non datur")
     print("Innej opcji nie ma")
@@ -49,5 +51,27 @@ if (i := int(input("podaj liczbę naturalną"))) % 2 == 0:
     print(f'{i} jest parzyste')
 else:
     print(f'{i} jest nieparzyste')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i = int(input("podaj liczbę 2 cyfrową"))
+a = i // 10
+b = i % 10
+if (a + b) % 7 == 0 and i % 2 == 0 :
+    print(f'{i} Dobra liczba')
+else:
+    print(f'{i} Zła liczba')
+
 
 
