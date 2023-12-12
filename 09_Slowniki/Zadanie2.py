@@ -88,3 +88,26 @@ def funkcja_spojna ():
 
 f = funkcja_spojna()
 f()
+
+#-----------------------------------------------------------------------------------------------
+
+def alphabet_range (start="A", end = "z", step = 1):
+
+    return (chr(x) for x in range(ord(start), ord(end), step))
+
+ alphabet_range ("a", "f",1)
+
+list(alphabet_range (end= "M"))
+
+
+
+
+
+
+
+
+
+
+
+
+
