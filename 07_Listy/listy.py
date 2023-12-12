@@ -1,5 +1,6 @@
 l = [3, 5, 6, 7]
-l
+
+#lista = []
 
 l[1]
 l[0]
@@ -47,3 +48,23 @@ s2.join(["Ala", "ma", "kota"])
 3 in l
 
 l.insert(2, 100)
+
+
+
+
+
+
+b =["Ala", "ma", "kota", "kota"]
+
+lista = []
+
+while True:
+
+    b = input("Wpisz coś")
+    if b == "":
+        break
+    lista = lista + [b]
+
+lista.sort()
+print (lista)
+

@@ -32,3 +32,20 @@ f'{pi:^30.2f}'
 f'{"-"*10}HELLO{"-"*10}'
 f'{"HELLO":-^25s}'
 
+
+
+
+a = "*"
+#f'{a: ^10s}'
+i = int(input("Podaj wysokosc choinki"))
+for n in range (i):
+    print (f'{" "* (i-n)} {a*(2*n+1)} {" "*(i-n)}')
+ #   z = z - 1
+for ogonek in range (2):
+    print(f'{" " * (i-ogonek)} {a * (2 * ogonek + 1)} {" " * (i-ogonek)}')
+
+
+
+
+
+

@@ -58,3 +58,36 @@ s
 'a' in s
 
 s = {1: "a", 2: 'b', "ala": [3, 4]}
+
+
+
+
+
+#zadanie
+
+
+b =["Ala", "ma", "kota", "kota"]
+
+lista = []
+
+
+
+
+slow = {}
+
+
+
+while True:
+
+    wpis = input("Wpisz coś")
+    if wpis == "":
+        break
+    # slow.get (wpis)
+    print(slow)
+    n = slow.get (wpis,0)
+    n += 1
+    slow[wpis] = n
+    print(slow)
+
+print (slow)
+

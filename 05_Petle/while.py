@@ -48,3 +48,13 @@ while n > 0:
 else:
     print('Koniec')
 
+
+liczba = input()
+suma = 0
+
+for char in str(liczba):
+    print (f"{char} oraz suma to {suma}")
+    suma += int(char)
+print(suma)
+
+
