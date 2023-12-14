@@ -34,3 +34,6 @@ class Saxophone(Instrument):
 
 instrument = globals()[input("Podaj instrument:")]('Bob')
 instrument.play()
+
+
+
