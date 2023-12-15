@@ -45,7 +45,7 @@ class Note(db.Model):
                            lazy='select')
 
 
-def assign_tag(note_id , tagname, session):
+def assign_tag(note_id, tagname, session):
     note = session.query(Note).filter_by(id=note_id).one()
     tag = session.query(Tag).filter_by(tagname=tagname).one()
     note.tags.append(tag)
@@ -53,6 +53,13 @@ def assign_tag(note_id , tagname, session):
     session.commit()
     return True
 
+
+def remove_tag_note(note_id, tagname, session):
+    note = session.query(Note).filter_by(id=note_id).one()
+    note.tags = [tag for tag in note.tags if tag.tagname != tagname]
+    session.add(note)
+    session.commit()
+    return True
 
 
 def get_tags(session):
@@ -109,11 +116,19 @@ def hello():
 
 
 @app.route('/assign_tag')
-
 def assign():
     note_id = request.args['note_id']
     tagname = request.args['tagname']
-    assign_tag(note_id, tagname,db.session)
+    assign_tag(note_id, tagname, db.session)
+    return render_template('form_notatki.html', data=get_tags(db.session)
+                           , data2=get_notes(db.session),
+                           tytul="Notatki", no_error=True)
+
+@app.route('/remove_tag_note')
+def get_remove_tag_note():
+    note_id = request.args['note_id']
+    tagname = request.args['tagname']
+    remove_tag_note(note_id, tagname, db.session)
     return render_template('form_notatki.html', data=get_tags(db.session)
                            , data2=get_notes(db.session),
                            tytul="Notatki", no_error=True)
