@@ -38,7 +38,7 @@ class Note(db.Model):
     def __repr__(self):
         return '<Note %r>' % self.title
 
-    tags = db.relationship("tag",
+    tags = db.relationship("Tag",
                            secondary='notetag',
                            uselist=True,
                            backref='notes',
