@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 Base = automap_base()
 db_url = "postgresql+psycopg2://my_user:secret@127.0.0.1/my_database"
 engine = create_engine(db_url)
-
+engine.echo=True
 # reflect the tables
 Base.prepare(engine, reflect=True)
 FoodItem = Base.classes.fooditem

@@ -39,6 +39,22 @@ def create_user(name, session):
     else:
         return True
 
+
+#
+# def remove_user(name, session):
+#     try:
+#         user = User(username=name)
+#         session.remove(user)
+#         session.commit()
+#         print(f'Uzytkownik 'user' usuniety')
+#     except sqlalchemy.exc.IntegrityError as e:
+#         print(e)
+#         session.rollback()
+#         return False
+#     else:
+#         return True
+
+
 def remove_user(name, session):
     user = session.query(User).filter_by(username=name).one()
     session.delete(user)
@@ -64,10 +80,12 @@ def add():
                            tytul=tytul)
 
 
+
+
 @app.route('/remove')
 def remove():
     args = request.args
-    remove_user(args["name"], db.session)
+    remove_user(args["values"], db.session)
     no_error = True
     if no_error:
         tytul = "Usunieto użytkownika"
