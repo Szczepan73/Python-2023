@@ -120,7 +120,22 @@ ul li::before {
 
 <ul>
     {% for item in data2 %}
-    <li>{{ item.title }}|{{item.body}}</li>
+    <li>
+        {{ item.title }}|{{item.body}}
+        {%for tag in item.tags%}{{tag.tagname}}#
+            {%endfor%}
+        <form action="/assign_tag">
+        <label for="tagname">wybierz znacznik:</label>
+        <select name="tagname" id="tagname">
+            {% for item in data  %}
+           <option value="{{ item.tagname }}">{{ item.tagname }}</option>
+        {% endfor %}
+        </select>
+            <input class="button button2" type="submit" value="Assign">
+            <input type="hidden" name = "note_id" value="{{item.id}}">
+        </form>
+
+    </li>
     {% else %}
     no items
     {% endfor %}
