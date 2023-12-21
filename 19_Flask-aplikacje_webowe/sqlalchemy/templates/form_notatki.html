@@ -57,6 +57,7 @@ ul li::before {
             color: white;
         }
 
+
     </style>
 </head>
 <body>
@@ -84,16 +85,14 @@ ul li::before {
 
 
 <form action="/remove_tag">
-<label for="values">wybierz znacznik:</label>
-<select name="values" id="values">
-    {% for item in data  %}
-   <option value="{{ item.tagname }}">{{ item.tagname }}</option>
-{% endfor %}
-</select>
+    <label for="values">wybierz znacznik:</label>
+    <select name="values" id="values">
+        {% for item in data %}
+        <option value="{{ item.tagname }}">{{ item.tagname }}</option>
+        {% endfor %}
+    </select>
     <input class="button button2" type="submit" value="Usun">
 </form>
-
-
 
 
 <ul>
@@ -114,25 +113,22 @@ ul li::before {
 </form>
 
 
-
-
-
-
 <ul>
     {% for item in data2 %}
     <li>
         {{ item.title }}|{{item.body}}
-        {%for tag in item.tags%}{{tag.tagname}}#
-            {%endfor%}
+        {%for tag in item.tags%}{{tag.tagname}}<a href = "/remove_tag_note?note_id={{item.id}}&tagname={{tag.tagname}}">#</a>
+
+        {%endfor%}
         <form action="/assign_tag">
-        <label for="tagname">wybierz znacznik:</label>
-        <select name="tagname" id="tagname">
-            {% for item in data  %}
-           <option value="{{ item.tagname }}">{{ item.tagname }}</option>
-        {% endfor %}
-        </select>
+            <label for="tagname">wybierz znacznik:</label>
+            <select name="tagname" id="tagname">
+                {% for item in data %}
+                <option value="{{ item.tagname }}">{{ item.tagname }}</option>
+                {% endfor %}
+            </select>
             <input class="button button2" type="submit" value="Assign">
-            <input type="hidden" name = "note_id" value="{{item.id}}">
+            <input type="hidden" name="note_id" value="{{item.id}}">
         </form>
 
     </li>
