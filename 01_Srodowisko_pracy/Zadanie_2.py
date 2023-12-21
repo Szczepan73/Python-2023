@@ -1,8 +1,5 @@
-def disemvowel(s):
+def likes(names):
 
-    for n in 'aeiouAEIOU':
-        s = s.replace(n, '')
-    return s
+    print names
 
-
-
+    pass
